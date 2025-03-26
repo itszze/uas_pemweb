@@ -1,61 +1,89 @@
-# Topik Tentang Website
+# Catatan Terkait Nginx, Docker, dan HTML
 
-Website mempunyai address, misal facebook.com. Seperti identitas atau biasa disebut domain. Setiap website yang dipublish menggunakan domain.
+## Nginx
+Nginx adalah web server yang memiliki performa tinggi, sering digunakan oleh situs besar seperti Google dan Netflix. Keunggulannya meliputi kemampuan sebagai load balancer, caching, dan proxy server.
 
-# HTML
+**Kelebihan:**
+- Dapat menangani ribuan koneksi simultan
+- Dokumentasi lengkap
+- Terus berkembang mengikuti teknologi
 
-bahasa general yang digunakan untuk developing website.
+**Kekurangan:**
+- Kurang optimal di Windows
+- Dukungan komunitas lebih kecil dibanding Apache
 
-## Div Pada HTML
-
-div itu dipake buat mengelompokkan tag html lain. contoh
-```html
-<div>
-    This is a div element.
-    <p>This is a paragraph inside the div.</p>
-</div>
-```
-
-## Tag A `<a></a>`
-
-Tag tersebut digunakan untuk membuat link pada suatu website. contoh `<a href="url">link text</a>`
+**Referensi:**
+- [Nginx Official](https://nginx.org/en/)
+- [Nginx Wiki](https://www.nginx.com/resources/wiki/)
 
 ---
 
-# Kegunaan Docker
+## Docker
+Docker adalah teknologi container yang mempermudah deployment aplikasi dalam lingkungan yang terisolasi.
 
-docker digunakan untuk menjalankan app, database, dan nginx. lebih mudah dikonfigurasi antara windows ke vps dibanding xampp. 
+**Kelebihan:**
+- Portabilitas tinggi
+- Isolasi aplikasi lebih baik
+- Efisiensi penggunaan sumber daya
 
-## A. Membahas docker-compose.yml
-- version adalah versi yang digunakan. 
-- service adalah layanan yang digunakan. 
-  - web digunakan didalam service menggunakan nginx versi latest (terbaru). 
-  - port yang digunakan adalah 80:80.
-  - volumes adalah tempat dimana file akan disimpan.
+**Kekurangan:**
+- Membutuhkan waktu untuk mempelajari konsepnya
+- Menambah kompleksitas dalam pengelolaan
 
-## B. nginx.conf
-- nginx adalah webserver, pengganti xampp. Yang dimana scopenya lebih besar seperti load balance, dll
-- port bisa diganti sesuai dengan listen di docker-compose.yml.
+**Referensi:**
+- [Docker Docs](https://docs.docker.com/get-started/overview/)
+- [Docker Containers](https://www.docker.com/resources/what-container/)
 
-# Analisa 
+---
 
-Minimal analisa harus ada 5W + 1H dan swot. Misal
--  Apa itu DOcker? (what)
--  Kapan Docker digunakan? (where)
--  Dimana Docker digunakan? (when)
--  Siapa yang menggunakan docker? (who)
--  Kenapa Docker digunakan? (why)
--  dll
-Dalam 5W + 1H tidak selalu digunakan. Hanya berdasarkan kebutuhan, misal hanya what, when, dan where aja.
+## Konfigurasi `docker-compose.yml` dengan Nginx
 
-# Hal Wajib
+```yaml
+version: '3'
 
-Disetiap pertemuan harus ada analisa, ngodingnya sama catatan. Itu harus disetor ke pa jep, kalo ga setor gabole cabut.
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./src/:/usr/share/nginx/html
+      - ./latihan:/usr/share/nginx/html/latihan
+```
 
-# Project
+## `nginx.conf`
+```nginx
+server {
+    listen 80;
+    server_name localhost;
+    root /usr/share/nginx/html;
+    index index.html index.htm;
+    
+    location / {
+        try_files $uri $uri/ =404;
+    }
+    
+    location /latihan {
+        alias /usr/share/nginx/html/latihan;
+        index index.html index.htm home.html;
+        try_files $uri $uri.html $uri/ =404;
+    }
+}
+```
 
-Membuat website company profile yang dikerjakan sebelum UTS. Project akhir adalah kasus yang dimana setiap orang mendapat kasus yang berbeda beda. Kriteria penilaian utama adalah kesesuaiian antara analisa dengan websitenya. Setelah itu maka akan dilakukan penilaian dari clean codenya.
+---
 
-# Source
+## HTML
+**Tag HTML penting:**
+1. `<div>` - Mengelompokkan elemen dalam halaman web
+2. `<a>` - Membuat hyperlink ke halaman lain
+3. `<form>` - Mengelola input pengguna
+4. `<h1>` - `<h6>` - Heading dengan berbagai tingkat
+5. `<img>` - Menampilkan gambar
+6. `<p>` - Paragraf teks
+7. `<ul>` dan `<li>` - Membuat daftar tidak berurutan
 
-Mengambil source code, template, plugin atau apapun yang mengambil sesuatu dari orang lain usahakan dikasih sumbernya dari mana.
+**Referensi:**
+- [MDN - HTML Elements](https://developer.mozilla.org/en-US/docs/Web/HTML)
+

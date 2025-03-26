@@ -1,114 +1,84 @@
-# 1. Analisa Terkait Nginx
+# Analisa Terkait Nginx
 
-## Apa itu nginx?
-
-Nginx adalah web server yang memiliki performa canggih dan memiliki fitur lengkap yang mudah dikonfigurasi. Pada dasarnya nginx digunakan untuk menjadi solusi  agar transfer data website yang memiliki trafik tinggi. Karena kecepatan dan kemampuan dalam menangani banyak koneksi, layanan nginx sudah banyak digunakan oleh website dengan traffic yang tinggi. Beberapa yang menggunakannya adalah Google, Netflix, Adobe, Cloudflare, dan masih banyak lagi.
+## Apa itu Nginx?
+Nginx adalah web server yang memiliki performa tinggi dengan fitur lengkap yang mudah dikonfigurasi. Nginx dirancang untuk menangani lalu lintas tinggi dan sering digunakan oleh website besar seperti Google, Netflix, Adobe, dan Cloudflare. ([Sumber](https://nginx.org/en/))
 
 ## Bagaimana Nginx bekerja?
-
-Ketika seseorang mengirim permintaan untuk membuka halaman web, browser akan menghubungi server dari situs tersebut. Server kemudian mencari file halaman yang diminta dan mengirimkannya kembali ke browser. Proses ini merupakan contoh dasar cara kerja server untuk permintaan sederhana. Nginx mampu memproses ribuan permintaan tanpa kesulitan. Kemampuan ini menjadikannya pilihan utama bagi situs web dengan lalu lintas yang tinggi seperti ecommerce, search engine, dan cloud storage.
+Nginx bekerja dengan menangani ribuan permintaan secara efisien. Saat pengguna mengakses situs web, browser mengirimkan permintaan ke server, yang kemudian mencari file yang diminta dan mengirimkannya kembali ke browser. Nginx mampu menangani banyak koneksi secara simultan dengan performa yang stabil. ([Sumber](https://www.nginx.com/resources/wiki/))
 
 ## Kapan Nginx digunakan?
+Nginx digunakan untuk website yang membutuhkan server dengan kemampuan menangani ribuan permintaan dengan lalu lintas tinggi. ([Sumber](https://www.nginx.com/))
 
-Nginx digunakan ketika website membutuhkan webserver yang dapat menangani ribuan permintaan dan membutuhkan traffic yang tinggi.
+## Kelebihan Nginx
+1. **Multifungsi**: Dapat digunakan sebagai web server, load balancer, cache konten, dan proxy server.
+2. **Pengganti hardware load balancer**: Lebih murah dan mudah dikonfigurasi dibandingkan hardware load balancer.
+3. **Dokumentasi lengkap**: Menyediakan tutorial dan panduan yang mudah diikuti. ([Sumber](https://docs.nginx.com/))
+4. **Pengembangan berkelanjutan**: Terus berkembang mengikuti perkembangan teknologi. ([Sumber](https://www.nginx.com/blog/))
 
-## Kelebihan nginx
-
-1. **nginx menjadi tool yang multifungsi**, Selain digunakan sebagai web server, Nginx juga berfungsi sebagai load balancer, cache konten, dan server proxy.
-2. **pengganti hardware load balancer**, Sebagai software load balancer open source, Nginx lebih murah dan mudah dikonfigurasi dibandingkan hardware load balancer.
-3. **dokumentasi lengkap**, Bagi pengguna baru, Nginx menyediakan berbagai dokumentasi lengkap, termasuk tutorial, webinar, dan panduan yang mudah diikuti.
-4. **pengembangan berkelanjutan**, Kelebihan Nginx berikutnya adalah pengembangan berkelanjutan. Nginx terus berkembang secara aktif. Selama satu dekade terakhir, Nginx telah berada di garis depan pengembangan web modern, dari HTTP hingga dukungan layanan mikro.  
-
-## Kekurangan nginx
-
-1. **kompatibilitas**, Nginx memang kompatibel dengan banyak unix-like systems, akan tetapi performanya di Microsoft Windows tidak sebaik platform lainnya. Selain itu, software ini juga tidak mendukung beberapa sistem operasi seperti IBM i, z/OS, eComStation, dan OpenVMS. 
-2. **dukungan komunitas masih belum lengkap**, software ini mempunyai dukungan dan bantuan komunitas yang lebih sedikit dibandingkan dengan Apache, sehingga beberapa isu belum didukung oleh dokumentasi dan referensi yang memadai.
+## Kekurangan Nginx
+1. **Kompatibilitas terbatas**: Performa kurang optimal di Windows dan tidak mendukung beberapa sistem operasi tertentu.
+2. **Dukungan komunitas terbatas**: Dokumentasi dan referensi masih kalah dibandingkan Apache. ([Sumber](https://en.wikipedia.org/wiki/Nginx))
 
 ---
 
-# 2. Analisa Terkait Docker
+# Analisa Terkait Docker
 
 ## Apa itu Docker?
-
-Docker adalah layanan yang menyediakan kemampuan untuk mengemas dan menjalankan sebuah aplikasi dalam sebuah lingkungan yang terisolasi yang disebut dengan container. Dengan adanya isolasi dan keamanan yang memadai memungkinkan untuk menjalankan banyak container di waktu yang bersamaan pada host tertentu.
+Docker adalah layanan untuk mengemas dan menjalankan aplikasi dalam lingkungan terisolasi yang disebut container. Dengan isolasi yang baik, Docker memungkinkan menjalankan banyak container secara bersamaan pada satu host. ([Sumber](https://docs.docker.com/get-started/overview/))
 
 ## Mengapa menggunakan Docker?
-
-Docker adalah alat yang memudahkan dalam menjalankan aplikasi di berbagai lingkungan tanpa perlu khawatir dengan perbedaan sistem. Dengan Docker, aplikasi dikemas dalam satu paket yang siap dijalankan di mana aja, sehingga proses pengembangan dan deployment menjadi lebih cepat dan efisien.
+Docker memudahkan dalam menjalankan aplikasi di berbagai lingkungan tanpa perlu khawatir dengan perbedaan sistem. Aplikasi dikemas dalam satu paket yang siap dijalankan di mana saja, sehingga proses pengembangan dan deployment lebih efisien. ([Sumber](https://www.docker.com/resources/what-container/))
 
 ## Kapan menggunakan Docker?
+Docker digunakan untuk membangun dan mengelola aplikasi modern berbasis layanan mikro serta sistem pemrosesan data yang skalabel. ([Sumber](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/))
 
-Docker sangat berguna dalam berbagai situasi, terumata ketika kita membangun dan mengelola Aplikasi Modern. Dengan Docker, pengembang dapat dengan mudah membuat atau menjalankan arsitektur berbasis layanan mikro, di mana setiap bagian aplikasi berjalan secara independen dalam container terpisah. Docker juga ideal untuk membangun sistem pemrosesan data yang skalabel. Dengan kemampuannya untuk menjalankan banyak container secara bersamaan, beban kerja dapat dengan mudah disesuaikan sesuai kebutuhan tanpa mengorbankan kinerja
-
-## Kelebihan DOcker
-
-1. **Portabilitas**, Docker dapat dengan mudah dipindahkan antar lingkungan, seperti dari pengembangan ke produksi, atau antara penyedia cloud yang berbeda.
-2. **Isolasi**, Docker memberikan tingkat isolasi yang tinggi antara sistem host dan aplikasi yang terkontainerisasi, memastikan bahwa masalah atau kerentanan tertentu terdapat di dalam kontainer.
-3. **Efisisiensi**, Dokcer ringan dan menggunakan lebih sedikit sumber daya dibandingkan dengan mesin virtual tradisional.
-4. **Scalability**, Docker dapat dengan mudah ditingkatkan secara horizontal untuk menangani beban lalu lintas yang tinggi atau untuk memenuhi permintaan aplikasi yang berkembang.
+## Kelebihan Docker
+1. **Portabilitas**: Dapat dipindahkan antar lingkungan dengan mudah.
+2. **Isolasi**: Memastikan keamanan antara sistem host dan aplikasi dalam container. ([Sumber](https://docs.docker.com/engine/security/security/))
+3. **Efisiensi**: Lebih ringan dibandingkan mesin virtual.
+4. **Scalability**: Dapat menangani beban lalu lintas tinggi dengan mudah. ([Sumber](https://docs.docker.com/compose/overview/))
 
 ## Kekurangan Docker
-
-1. **Proses Pembelajaran**, Docker membutuhkan cukup lama untuk belajar, terutama untuk pengguna yang tidak terbiasa dengan konsep kontainerisasi.
-2. **Kompleksitas**, Docker dapat menambah kompleksitas pada tumpukan aplikasi, terutama saat mengelola beberapa kontainer dan layanan mikro.
-3. **Overhead Sumber Daya**, Meskipun kontainer Docker menggunakan lebih sedikit sumber daya daripada mesin virtual tradisional, mereka masih memerlukan beberapa overhead dalam hal penggunaan ruang disk dan memori.
+1. **Proses pembelajaran yang cukup lama**.
+2. **Menambah kompleksitas dalam pengelolaan aplikasi**.
+3. **Overhead sumber daya dalam penggunaan disk dan memori**. ([Sumber](https://cloud.google.com/container-registry/docs/overview))
 
 ---
 
-# 3. Penjelasan Terkait Konfigurasi `docker-compose.yml` dengan nginx
+# Konfigurasi `docker-compose.yml` dengan Nginx
 
 ## `docker-compose.yml` dan `.env`
 
-Dibawah ini adalah source code `docker-compose.yml` dan `.env`
-
-```php
+```yaml
 version: '3'
 
 services:
   web:
     image: nginx:latest
     ports:
-    - 80:80
+      - "80:80"
     volumes:
-    - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-    - ./src/:/usr/share/nginx/html
-
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./src/:/usr/share/nginx/html
+      - ./latihan:/usr/share/nginx/html/latihan
 ```
 
-update
-
-```php
-    - ./latihan:/usr/share/nginx/html/latihan
-```
-
-
-```
+```env
 COMPOSE_PROJECT_NAME=esgul
 REPOSITORY_NAME=pemweb
 IMAGE_TAG=latest
-
 ```
 
-pada `docker-compose.yml` terdapat 
-- `version` yang dimana ini adalah versi docker compose yang digunakan.
-- `services` yang mendefinisikan semua layanan (container) yang mau dijalankan. Dalam kasus ini, hanya ada satu layananm yaitu `web`. 
-- `image: nginx:lates` akan menginstruksikan Docker untuk menggunakan image Nginx versi terbaru.  
-- `ports:` ini untuk menentukan pemetaan port antara host (komputer lokal/server) dan container docker. `80:80` artinya ports 80 di host akan diteruskan ke port 80 di dalam container, sehingga nginx bisa diakses melalui http://localhost di browser.
-- `volumes:` bagian ini menghubungkan direktori di host dengan direktori di dalam container, sehingga perubahan pada file lokal langsung diterapkan di container.
-  - `- ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf` file nginx.conf yang ada di folder `./nginx/` akan dipasang di dalam container pada `etc/nginx/conf.d/default.conf`. Memungkinkan kita untuk menggunakan konfigurasi nginx yang telah disesuaikan, bukan bawaan default dari image nginx.
-  - `- ./src/:/usr/share/nginx/html` folder `./src/` di host akan dipasang ke dalam container pada `/usr/share/nginx/html`. Ini adalah folder tempat nginx menyimpan file HTML, CSS, JS, dll, sehingga kita bisa langsung melihat perubahan di browser tanpa perlu membangun ulang container
-  - `- ./latihan:/usr/share/nginx/html/latihan` artinya folder `/latihan` di lokal akan digunakan nginx di dalam docker sebagai sumber file web di `/usr/share/nginx/html/latihan`
-
-pada `.env` terdapat
-- ` COMPOSE_PROJECT_NAME=esgul` adalah nama dari containernya
-- `REPOSITORY_NAME=pemweb` adalah nama repositor dari kontainer
-- `IMAGE_TAG=latest` adalah versi image yang terbaru.
+### Penjelasan Konfigurasi
+- `version`: Menentukan versi docker-compose.
+- `services`: Menentukan layanan yang dijalankan, dalam hal ini `web`.
+- `image`: Menggunakan image Nginx versi terbaru.
+- `ports`: Meneruskan port 80 di host ke container.
+- `volumes`: Menghubungkan direktori di host dengan container untuk mempermudah pengelolaan file.
 
 ## `nginx.conf`
 
-Konfigurasi nginx di bawah digunakan untuk mengatur server web yang akan melayani file statis seperti HTML, CSS, dan Js.
-
-```php
+```nginx
 server {
     listen 80;
     server_name localhost;
@@ -119,76 +89,52 @@ server {
     location / {
         try_files $uri $uri/ =404;
     }
-}
-```
 
-pada `nginx.conf` terdapat
-- `server {. . .}` bagian ini mendefinisikan blok server  untuk menangani permintaan HTTP.
-- `listen 80;` menginstruksikan nginx untuk listen koneksi pada port 80. Artinya, server ini akan aktif saat seseorang mengakses http://localhost.
-- `server_name localhost` menetapkan nama domain yang digunakan untuk server ini.
-- `root /usr/share/nginx/html;` mementukan folder root  tempat nginx mencari file yang akan ditampilkan ke pengguna.
-- `index index.html index.htm;` menentukan file default yang akan dimuat jika pengguna mengakses root (/) tanpa menentukan file tertentu.
-
-update 
-
-```php
-location /latihan {
+    location /latihan {
         alias /usr/share/nginx/html/latihan;
         index index.html index.htm home.html;
         try_files $uri $uri.html $uri/ =404;
     }
+}
 ```
 
-- `location /latihan {. . .}` semua permintaan ke http://localhot/latihan akan diproses oleh aturan dalam blok tersebut
-- `alias /usr/share/nginx/html/latihan;` mengarahkan /latihan ke folder /usr/share/nginx/html/latihan
-- `index index.html index.htm home.html;` menentukan file yang akan ditampilkan secara otomatis jika pengguna hanya mengakses http://localhost/latihan tanpa menyebutkan nama filenya.
-- `try_files $uri $uri.html $uri/ =404;` jika pengguna mengakses http://localhost/latihan/about, nginx akan mencari:
-  - `/usr/share/nginx/html/latihan/about`
-  - jika tidak ada, coba `/usr/share/nginx/html/latihan/about.html`
-  - jika tidak ada, coba `/usr/share/nginx/html/latihan/about/`
-  - jika semua gagal, tampilkan 404 Not Found
+Penjelasan tambahan:
+- `location /latihan` menangani permintaan ke `/latihan` dan mencari file yang sesuai.
+- `alias` mengarahkan ke folder latihan.
+- `try_files` menangani permintaan file dengan fallback ke 404 jika tidak ditemukan.
 
 ---
 
-# 4. Penjelasan Terkait HTML
+# Analisa Terkait HTML
 
-## 1. Tag **div**
+## 1. Tag `<div>`
+Digunakan untuk mengelompokkan elemen dalam halaman web. ([Sumber](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div))
 
-Tag <div></div> digunakan untuk membagi atau mengelompokkan elemen lainnya
+## 2. Tag `<a>`
+Digunakan untuk membuat hyperlink ke halaman lain. ([Sumber](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a))
 
-## 2. Tag a
+## 3. Tag `<form>`
+Digunakan untuk mengelompokkan elemen dalam formulir. ([Sumber](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form))
 
-tag `<a></a>` digunakan untuk membuat link ke halaman web lain
+## 4. Tag `<h1>` - `<h6>`
+Digunakan untuk heading dari yang terbesar (`h1`) hingga terkecil (`h6`). ([Sumber](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements))
 
-## 3. Tag form
+## 5. Tag `<img>`
+Digunakan untuk menampilkan gambar pada halaman web. ([Sumber](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img))
 
-tag `<form></form>` digunakan untuk mengelompokkan elemen-elemen terkait dalam form
+## 6. Tag `<p>`
+Digunakan untuk menampilkan paragraf. ([Sumber](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p))
 
-## 4. Tag h
-
-tag `<h1></h1> - <h6></h6>` digunakan untuk judul dan subjudul, dengan `<h1>` sebagai judul utama dan `<h6>` sebagai sub judul terkecil
-
-## 5. Tag img
-
-tag `<img>` adalah tag yang khusus digunakan untuk menyisipkan gambar
-
-## 6. Tag p
-
-tag `<p></p>` digunakan untuk membuat paragraf
-
-## Tag ul dan li
-tag `<ul></ul>` dan `<li></li>` untuk membuat daftar tidak berurutan. yang dimana `<ul>` untuk membuat daftar yang dimana setiap item ditandai dengan simbol. sedangkan `<li>` itu dipakai dalam `<ul>` untuk menentukan setiap item dalam daftar
+## 7. Tag `<ul>` dan `<li>`
+Digunakan untuk membuat daftar tidak berurutan. ([Sumber](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul))
 
 ---
-
-#
 
 # Referensi
+1. https://nginx.org/en/
+2. https://www.nginx.com/resources/wiki/
+3. https://docs.nginx.com/
+4. https://docs.docker.com/get-started/overview/
+5. https://www.docker.com/resources/what-container/
+6. https://developer.mozilla.org/en-US/docs/Web/HTML
 
-1. https://www.biznetgio.com/news/apa-itu-nginx?gad_source=1
-2. https://www.hostinger.com/id/tutorial/apa-itu-nginx
-3. https://www.dicoding.com/blog/apa-itu-docker/
-4. https://aws.amazon.com/id/docker/
-5. https://www.revou.co/panduan-teknis/tag-html
-6. https://www.goldenfast.net/blog/nginx-adalah/
-7. https://jagoancloud.com/blog/docker-adalah/
