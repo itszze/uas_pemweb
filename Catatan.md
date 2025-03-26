@@ -1,89 +1,89 @@
-# Catatan Terkait Nginx, Docker, dan HTML
+# Topik: Website dan Teknologi Pendukungnya
 
-## Nginx
-Nginx adalah web server yang memiliki performa tinggi, sering digunakan oleh situs besar seperti Google dan Netflix. Keunggulannya meliputi kemampuan sebagai load balancer, caching, dan proxy server.
-
-**Kelebihan:**
-- Dapat menangani ribuan koneksi simultan
-- Dokumentasi lengkap
-- Terus berkembang mengikuti teknologi
-
-**Kekurangan:**
-- Kurang optimal di Windows
-- Dukungan komunitas lebih kecil dibanding Apache
-
-**Referensi:**
-- [Nginx Official](https://nginx.org/en/)
-- [Nginx Wiki](https://www.nginx.com/resources/wiki/)
-
+Setiap situs web memiliki alamat unik, seperti google.com, yang disebut sebagai domain. Domain ini berfungsi sebagai identitas yang memungkinkan pengguna mengakses situs secara publik.
 ---
 
-## Docker
-Docker adalah teknologi container yang mempermudah deployment aplikasi dalam lingkungan yang terisolasi.
+# HTML
 
-**Kelebihan:**
-- Portabilitas tinggi
-- Isolasi aplikasi lebih baik
-- Efisiensi penggunaan sumber daya
+HTML adalah bahasa standar yang digunakan untuk mengembangkan website.
 
-**Kekurangan:**
-- Membutuhkan waktu untuk mempelajari konsepnya
-- Menambah kompleksitas dalam pengelolaan
+## Elemen `<div>` pada HTML
 
-**Referensi:**
-- [Docker Docs](https://docs.docker.com/get-started/overview/)
-- [Docker Containers](https://www.docker.com/resources/what-container/)
+Tag `<div>` digunakan untuk mengelompokkan elemen-elemen HTML lainnya. Contoh penggunaannya:
 
----
-
-## Konfigurasi `docker-compose.yml` dengan Nginx
-
-```yaml
-version: '3'
-
-services:
-  web:
-    image: nginx:latest
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./src/:/usr/share/nginx/html
-      - ./latihan:/usr/share/nginx/html/latihan
+```html
+<div>
+    Ini adalah elemen div.
+    <p>Paragraf di dalam elemen div.</p>
+</div>
 ```
 
-## `nginx.conf`
-```nginx
-server {
-    listen 80;
-    server_name localhost;
-    root /usr/share/nginx/html;
-    index index.html index.htm;
-    
-    location / {
-        try_files $uri $uri/ =404;
-    }
-    
-    location /latihan {
-        alias /usr/share/nginx/html/latihan;
-        index index.html index.htm home.html;
-        try_files $uri $uri.html $uri/ =404;
-    }
-}
+## Tag `<a>` (Anchor)
+
+Tag ini digunakan untuk membuat hyperlink ke halaman lain. Contohnya:
+
+```html
+<a href="https://example.com">Kunjungi situs</a>
 ```
 
 ---
 
-## HTML
-**Tag HTML penting:**
-1. `<div>` - Mengelompokkan elemen dalam halaman web
-2. `<a>` - Membuat hyperlink ke halaman lain
-3. `<form>` - Mengelola input pengguna
-4. `<h1>` - `<h6>` - Heading dengan berbagai tingkat
-5. `<img>` - Menampilkan gambar
-6. `<p>` - Paragraf teks
-7. `<ul>` dan `<li>` - Membuat daftar tidak berurutan
+# Kegunaan Docker
 
-**Referensi:**
-- [MDN - HTML Elements](https://developer.mozilla.org/en-US/docs/Web/HTML)
+Docker digunakan untuk menjalankan aplikasi, database, dan Nginx. Docker lebih mudah dikonfigurasi antara Windows dan VPS dibandingkan dengan XAMPP.
+
+## A. Struktur `docker-compose.yml`
+
+- `version`: Menentukan versi docker-compose yang digunakan.
+- `services`: Menentukan layanan yang akan dijalankan.
+  - `web`: Layanan ini menggunakan Nginx versi terbaru (`latest`).
+  - `ports`: Menentukan port yang digunakan, misalnya `80:80`.
+  - `volumes`: Menghubungkan direktori di dalam container dengan sistem host untuk penyimpanan data.
+
+## B. Konfigurasi `nginx.conf`
+
+- Nginx adalah web server yang dapat digunakan sebagai pengganti XAMPP. Selain itu, Nginx memiliki cakupan lebih luas seperti load balancing.
+- Port yang digunakan dapat disesuaikan dengan pengaturan `listen` di `docker-compose.yml`.
+
+---
+
+# Analisis
+
+Dalam analisis, minimal harus mencakup metode 5W + 1H serta analisis SWOT. Beberapa contoh pertanyaan yang dapat digunakan:
+
+- **Apa itu Docker?** (What)
+- **Kapan Docker digunakan?** (When)
+- **Di mana Docker bisa diterapkan?** (Where)
+- **Siapa yang menggunakan Docker?** (Who)
+- **Mengapa Docker penting?** (Why)
+- **Bagaimana cara kerja Docker?** (How)
+
+Namun, tidak semua elemen 5W + 1H harus digunakan, melainkan hanya yang relevan dengan kebutuhan.
+
+---
+
+# Hal yang Wajib Dilakukan
+
+Dalam setiap sesi, harus ada tiga komponen utama yang dikerjakan:
+1. **Analisis**
+2. **Coding (ngoding)**
+3. **Catatan**
+
+Semua hasil tersebut harus dikumpulkan kepada Pak Jep sebelum meninggalkan sesi. Jika tidak dikumpulkan, maka tidak diperbolehkan untuk keluar kelas.
+
+---
+
+# Project
+
+- **Project Sebelum UTS:** Membuat website company profile.
+- **Project Akhir:** Setiap mahasiswa mendapatkan kasus yang berbeda-beda dan harus mengembangkan website berdasarkan analisis yang telah dibuat.
+- **Kriteria Penilaian:**
+  - Kesesuaian antara analisis dan hasil akhir website.
+  - Kualitas clean code.
+
+---
+
+# Sumber Referensi
+
+Jika menggunakan kode, template, plugin, atau sumber lain dari pihak ketiga, pastikan untuk mencantumkan sumbernya dengan jelas agar tidak melanggar etika akademik dan profesional.
 
