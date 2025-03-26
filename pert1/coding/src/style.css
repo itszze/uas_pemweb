@@ -1,0 +1,133 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lobster&display=swap');
+
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Default pakai Poppins */
+}
+
+/* Background Video */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Styling untuk konten utama */
+.main {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 50px 20px;
+    margin: 50px auto;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efek Bubble untuk "Welcome to my website" */
+@keyframes bubbleEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.name {
+    font-size: 2.5em;
+    color: #ff4d88;
+    font-weight: bold;
+    font-family: 'Lobster', cursive; /* Hanya pakai Lobster */
+    display: inline-block;
+    animation: bubbleEffect 2s infinite ease-in-out;
+}
+
+/* Efek Ombak untuk Teks Intro */
+@keyframes waveText {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    50% { transform: translateY(5px); }
+    75% { transform: translateY(-3px); }
+}
+
+.main .intro {
+    font-size: 1.1em;
+    color: #4a5568;
+    font-style: italic;
+    display: inline-block;
+    animation: waveText 2s infinite ease-in-out;
+}
+
+/* Efek hover untuk link */
+.main .intro a {
+    color: #ff4d88;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.main .intro a:hover {
+    color: #d20070;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+/* Sumber daya */
+.second {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px 20px;
+    border-radius: 20px;
+    margin: 30px auto;
+    max-width: 800px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Beri jarak antara teks dan daftar */
+.second .resources p {
+    margin-bottom: 20px;
+}
+
+/* Styling daftar */
+.second .resources ul {
+    list-style: none;
+    text-align: left;
+}
+
+.second .resources li {
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.second .resources li:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.second .resources li a {
+    color: #ff4d88;
+    font-weight: bold;
+}
+
+/* Footer */
+.third {
+    background: #ff4d88;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+}
