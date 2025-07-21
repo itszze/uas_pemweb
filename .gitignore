@@ -1,1 +1,8 @@
 sampleapp/db/data/
+sampleapp/db/mysql/
+sampleapp/db/performance_schema/
+*.zip
+vendor/
+node_modules/
+.env
+sampleapp/db/data/
